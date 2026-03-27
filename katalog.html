@@ -12,12 +12,33 @@
         .back-link { text-decoration: none; color: #888; font-size: 0.8em; text-transform: uppercase; letter-spacing: 2px; }
 
         header { padding: 40px 20px 80px; text-align: center; }
-        header h1 { font-size: 2.5em; letter-spacing: 10px; text-transform: uppercase; font-weight: 200; margin: 0; }
+        header h1 { font-size: clamp(1.8em, 5vw, 2.5em); letter-spacing: 10px; text-transform: uppercase; font-weight: 200; margin: 0; }
         header p { font-size: 0.75em; letter-spacing: 4px; color: var(--accent); text-transform: uppercase; margin-top: 15px; }
 
-        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 50px; max-width: 1300px; margin: 0 auto 100px; padding: 0 20px; }
+        /* GALERIJA - POVEĆAN GRID ZA BOLJI RED */
+        .gallery { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); 
+            gap: 60px; /* Povećan razmak radi prozračnosti */
+            max-width: 1300px; 
+            margin: 0 auto 100px; 
+            padding: 0 20px; 
+            align-items: start; /* Poravnava sve elemente od vrha */
+        }
+        
         .item { text-align: center; }
-        .item img { width: 100%; height: 500px; object-fit: cover; cursor: pointer; transition: 0.4s; border: 1px solid #f9f9f9; }
+        
+        /* KLJUČNA IZMENA - FIKSNA VISINA I SAVRŠEN KROP */
+        .item img { 
+            width: 100%; 
+            height: 480px; /* FIKSNA VISINA ZA SVE SLIKE */
+            object-fit: cover; /* Automatski kropuje i popunjava prostor bez rastezanja */
+            cursor: pointer; 
+            transition: 0.4s; 
+            border: 1px solid #f9f9f9; 
+            display: block; /* Uklanja mali razmak ispod slike */
+        }
+        
         .item img:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
 
         .item-info { padding: 25px 0; }
@@ -32,6 +53,12 @@
         .close { position: absolute; top: 20px; right: 40px; font-size: 40px; cursor: pointer; color: #000; font-weight: 200; }
 
         footer { text-align: center; padding: 80px; color: #aaa; font-size: 0.7em; letter-spacing: 3px; text-transform: uppercase; border-top: 1px solid #f5f5f5; }
+
+        /* ODZIVNOST ZA MOBILNE */
+        @media (max-width: 768px) {
+            .gallery { grid-template-columns: 1fr; gap: 40px; }
+            .item img { height: 350px; } /* Nešto manja visina na telefonu */
+        }
     </style>
 </head>
 <body>

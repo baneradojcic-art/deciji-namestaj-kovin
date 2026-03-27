@@ -1,34 +1,97 @@
+<!DOCTYPE html>
 <html lang="sr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dečiji Nameštaj Kovin | Ručna Izrada od Masiva</title>
+    <title>Dečiji Nameštaj Kovin | Ručna Izrada | Jasen i Bukva</title>
     <style>
-        :root { --primary: #2c3e50; --accent: #d35400; --light: #f8f9fa; --text: #34495e; }
-        body { font-family: 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: var(--text); background-color: #f0f2f5; margin: 0; }
+        :root { 
+            --primary: #1a252f; 
+            --accent: #d35400; 
+            --viber: #7360f2; 
+            --whatsapp: #25d366; 
+            --bg-dark: #24292e; /* Moderna tamna pozadina */
+            --card-bg: #2f363d; /* Malo svetlija tamna za kartice */
+            --text-light: #e1e4e8;
+        }
+        body { 
+            font-family: 'Segoe UI', Roboto, sans-serif; 
+            line-height: 1.6; 
+            color: var(--text-light); 
+            background-color: var(--bg-dark); 
+            margin: 0; 
+        }
         
-        header { background: linear-gradient(135deg, var(--primary), #1a252f); color: #fff; padding: 60px 20px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-        header h1 { margin: 0; font-size: 2.2em; }
+        header { 
+            background: linear-gradient(135deg, #0d1117, #1a252f); 
+            color: #fff; 
+            padding: 60px 20px; 
+            text-align: center; 
+            border-bottom: 1px solid #30363d;
+        }
+        header h1 { margin: 0; font-size: 2.2em; color: #fff; }
 
         .container { max-width: 1100px; margin: -40px auto 40px; padding: 0 20px; }
-        .intro-card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.1); margin-bottom: 40px; text-align: center; }
+        
+        .intro-card { 
+            background: var(--card-bg); 
+            padding: 30px; 
+            border-radius: 12px; 
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3); 
+            margin-bottom: 40px; 
+            text-align: center;
+            border: 1px solid #444d56;
+        }
 
-        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        .gallery-item { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: transform 0.3s ease; cursor: zoom-in; }
-        .gallery-item:hover { transform: translateY(-8px); }
-        .gallery-item img { width: 100%; height: 350px; object-fit: cover; display: block; }
-        .item-info { padding: 15px; border-top: 1px solid #eee; font-weight: 600; text-align: center; background: #fff; }
+        .contact-fast { display: flex; justify-content: center; gap: 15px; margin-top: 25px; flex-wrap: wrap; }
+        .btn-fast { padding: 14px 28px; border-radius: 50px; text-decoration: none; color: white; font-weight: bold; transition: 0.3s; display: flex; align-items: center; gap: 10px; }
+        .btn-viber { background-color: var(--viber); }
+        .btn-whatsapp { background-color: var(--whatsapp); }
+        .btn-fast:hover { transform: translateY(-3px); opacity: 0.9; }
 
-        /* Modal za uveličavanje slike */
-        .modal { display: none; position: fixed; z-index: 1000; padding-top: 50px; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); }
-        .modal-content { margin: auto; display: block; max-width: 90%; max-height: 80vh; border-radius: 8px; }
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 40px; }
+        .gallery-item { 
+            background: var(--card-bg); 
+            border-radius: 12px; 
+            overflow: hidden; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3); 
+            transition: transform 0.3s ease; 
+            cursor: zoom-in;
+            border: 1px solid #444d56;
+        }
+        .gallery-item:hover { transform: translateY(-8px); border-color: var(--accent); }
+        .gallery-item img { width: 100%; height: 350px; object-fit: cover; display: block; opacity: 0.95; }
+        .item-info { padding: 15px; border-top: 1px solid #444d56; font-weight: 600; text-align: center; color: #fff; }
+
+        .modal { display: none; position: fixed; z-index: 1000; padding-top: 50px; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.95); }
+        .modal-content { margin: auto; display: block; max-width: 90%; max-height: 80vh; border-radius: 8px; border: 2px solid #444; }
         .close { position: absolute; top: 15px; right: 35px; color: #f1f1f1; font-size: 40px; font-weight: bold; cursor: pointer; }
 
-        .tech-specs { background: #fff; margin-top: 50px; padding: 40px; border-radius: 12px; border-left: 8px solid var(--accent); box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .cta-section { text-align: center; margin: 60px 0; padding: 50px; background: var(--primary); color: white; border-radius: 12px; }
-        .btn { display: inline-block; background: var(--accent); color: white; padding: 18px 40px; text-decoration: none; border-radius: 50px; font-weight: bold; transition: 0.3s; text-transform: uppercase; }
-        .btn:hover { background: #e67e22; transform: scale(1.05); }
-        footer { text-align: center; padding: 40px; color: #7f8c8d; }
+        .tech-specs { 
+            background: var(--card-bg); 
+            margin-top: 50px; 
+            padding: 40px; 
+            border-radius: 12px; 
+            border-left: 8px solid var(--accent); 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2); 
+            border-right: 1px solid #444d56;
+            border-top: 1px solid #444d56;
+            border-bottom: 1px solid #444d56;
+        }
+        .tech-specs h3 { color: #fff; }
+
+        .cta-section { 
+            text-align: center; 
+            margin: 60px 0; 
+            padding: 50px; 
+            background: #0d1117; 
+            color: white; 
+            border-radius: 12px;
+            border: 1px solid #30363d;
+        }
+        .btn-insta { display: inline-block; background: var(--accent); color: white; padding: 18px 40px; text-decoration: none; border-radius: 50px; font-weight: bold; transition: 0.3s; text-transform: uppercase; }
+        
+        footer { text-align: center; padding: 40px; color: #8b949e; font-size: 0.9em; }
     </style>
 </head>
 <body>
@@ -40,8 +103,13 @@
 
 <div class="container">
     <div class="intro-card">
-        <h2>Kvalitet za najmlađe</h2>
-        <p>Svaki komad je unikat, ručno rađen od selektovanog drveta uz primenu ekoloških boja na vodenoj bazi. Nameštaj koji spaja dugovečnost i bezbednost.</p>
+        <h2 style="color: #fff;">Kvalitet za najmlađe</h2>
+        <p>Nameštaj koji spaja dugovečnost i bezbednost. Prirodni materijali i ekološki premazi.</p>
+        
+        <div class="contact-fast">
+            <a href="viber://chat?number=38162299151" class="btn-fast btn-viber">Viber Poruka</a>
+            <a href="https://wa.me/38162299151" class="btn-fast btn-whatsapp" target="_blank">WhatsApp Poruka</a>
+        </div>
     </div>
 
     <div class="gallery">
@@ -77,23 +145,21 @@
     </div>
 
     <div class="tech-specs">
-        <h3>Tehnički Standardi:</h3>
+        <h3>Tehnički Standardi Izrade:</h3>
         <ul>
             <li><strong>Materijali:</strong> Masiv jasena i bukve, sedišta od brezove šperploče.</li>
-            <li><strong>Završnica:</strong> Ekološke boje i lakovi na vodenoj bazi (sertifikovano za dečiju upotrebu).</li>
-            <li><strong>Bezbednost:</strong> Sve ivice su zaobljene i ručno polirane do visoke glatkoće.</li>
+            <li><strong>Završnica:</strong> Ekološke boje i lakovi na vodenoj bazi.</li>
+            <li><strong>Bezbednost:</strong> Sve ivice su zaobljene i ručno polirane.</li>
             <li><strong>Lokacija:</strong> Ručna izrada u radionici u Kovinu.</li>
         </ul>
     </div>
 
     <div class="cta-section">
-        <h2>Poručite direktno od majstora</h2>
-        <p>Za sve informacije o cenama i modelima, posetite našu Instagram stranicu:</p>
-        <br>
-        <a href="https://www.instagram.com/deciji_namestaj_od_drveta_2/" target="_blank" class="btn">Poseti Instagram Profil</a>
+        <h2>Poručite putem Instagrama</h2>
+        <a href="https://www.instagram.com/deciji_namestaj_od_drveta_2/" target="_blank" class="btn-insta">Poseti Instagram Profil</a>
     </div>
 
-    <footer>&copy; 2026 Dečiji Nameštaj Kovin. Sva prava zadržana.</footer>
+    <footer>&copy; 2026 Dečiji Nameštaj Kovin.</footer>
 </div>
 
 <script>
@@ -109,9 +175,6 @@
         if (event.target == modal) { modal.style.display = "none"; }
     }
 </script>
-
-</body>
-</html>
 
 </body>
 </html>

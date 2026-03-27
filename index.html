@@ -6,11 +6,11 @@
     <title>SWEET WOOD | Nordic Design & Craftsmanship</title>
     <style>
         :root { --primary: #121212; --accent: #d35400; --bg-dark: #121212; }
-        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: #f4f4f4; background-color: var(--bg-dark); margin: 0; }
+        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: #f4f4f4; background-color: var(--bg-dark); margin: 0; overflow-x: hidden; }
         
         header { padding: 80px 20px; text-align: center; border-bottom: 1px solid #222; }
-        header h1 { margin: 0; font-size: 3.5em; letter-spacing: 12px; text-transform: uppercase; font-weight: 200; }
-        header p { font-size: 0.8em; letter-spacing: 4px; color: var(--accent); margin-top: 15px; text-transform: uppercase; }
+        header h1 { margin: 0; font-size: clamp(2.2em, 8vw, 3.8em); letter-spacing: 12px; text-transform: uppercase; font-weight: 200; color: #fff; }
+        header p { font-size: 0.85em; letter-spacing: 4px; color: var(--accent); margin-top: 15px; text-transform: uppercase; }
 
         .hero-section { max-width: 1200px; margin: 40px auto; padding: 0 20px; text-align: center; }
         
@@ -21,46 +21,54 @@
             border: 1px solid #222;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             margin-bottom: 40px;
+            display: block;
         }
 
-        .cta-section { text-align: center; margin: 60px 0; padding: 40px; border-top: 1px solid #222; }
+        .hero-text { max-width: 600px; margin: 0 auto; font-weight: 200; font-size: 1.25em; letter-spacing: 1px; color: #ccc; }
+
+        .cta-container { margin-top: 60px; margin-bottom: 120px; }
         
         .btn-katalog { 
             display: inline-block; 
             border: 1px solid #fff; 
-            color: white; 
+            color: #000;
             padding: 18px 50px; 
             text-decoration: none; 
             text-transform: uppercase; 
             letter-spacing: 3px; 
-            font-size: 0.9em; 
+            font-size: 0.95em; 
             transition: 0.4s; 
-            background: #fff; /* Scandi stil: Bel dugme na tamnoj podlozi */
-            color: #000;
+            background: #fff; /* Bel dugme na tamnoj podlozi - Scandi stil */
+            box-shadow: 0 4px 10px rgba(255,255,255,0.1);
         }
-        .btn-katalog:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+        .btn-katalog:hover { background: var(--accent); color: #fff; border-color: var(--accent); transform: translateY(-3px); }
         
-        footer { text-align: center; padding: 80px; color: #333; font-size: 0.7em; letter-spacing: 3px; text-transform: uppercase; }
+        footer { text-align: center; padding: 80px; color: #333; font-size: 0.75em; letter-spacing: 3px; text-transform: uppercase; border-top: 1px solid #222; }
     </style>
 </head>
 <body>
 
 <header>
     <h1>SWEET WOOD</h1>
-    <p>Minimalizam i Masiv</p>
+    <p>Nordic Design & Craftsmanship</p>
 </header>
 
 <div class="hero-section">
-    <img src="home-skandinavski.jpg" alt="SWEET WOOD - Scandi dečija soba jasen bukva" class="hero-image">
+    <img src="home-page-slika.jpg" alt="SWEET WOOD - Skandinavski dizajn dečijeg nameštaja jasen bukva" class="hero-image">
     
-    <p style="max-width: 600px; margin: 0 auto; font-weight: 200; font-size: 1.2em; letter-spacing: 1px; color: #ccc;">
+    <p class="hero-text">
         Inspirisani Nordic dizajnom, stvaramo nameštaj koji spaja čistu formu jasena i bezbednost za vaše dete.
     </p>
     
-    <div style="margin-top: 50px;">
+    <div class="cta-container">
         <a href="katalog.html" class="btn-katalog">Pogledaj katalog</a>
     </div>
 </div>
+
+<footer>&copy; 2026 SWEET WOOD. SCANDINAVIAN QUALITY.</footer>
+
+</body>
+</html>
 
 <footer>&copy; 2026 SWEET WOOD. SCANDINAVIAN QUALITY.</footer>
 

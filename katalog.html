@@ -8,8 +8,25 @@
         :root { --primary: #121212; --accent: #d35400; --bg: #ffffff; }
         body { font-family: 'Inter', sans-serif; line-height: 1.6; color: var(--primary); background-color: var(--bg); margin: 0; }
         
-        nav { padding: 30px; text-align: left; max-width: 1200px; margin: 0 auto; }
+        /* NAVIGACIJA SA LINKOM ZA PORUČIVANJE */
+        nav { 
+            padding: 30px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+        }
         .back-link { text-decoration: none; color: #888; font-size: 0.8em; text-transform: uppercase; letter-spacing: 2px; }
+        .order-nav-link { 
+            text-decoration: none; 
+            color: var(--accent); 
+            font-size: 0.8em; 
+            font-weight: 600; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            border-bottom: 1px solid var(--accent);
+        }
 
         header { padding: 40px 20px 80px; text-align: center; }
         header h1 { font-size: clamp(1.8em, 5vw, 2.5em); letter-spacing: 10px; text-transform: uppercase; font-weight: 200; margin: 0; }
@@ -43,17 +60,23 @@
         .modal-content { margin: auto; display: block; max-width: 90%; max-height: 85vh; padding-top: 40px; }
         .close { position: absolute; top: 20px; right: 40px; font-size: 40px; cursor: pointer; color: #000; font-weight: 200; }
 
+        /* FOOTER SA DIREKTNIM LINKOM */
         footer { text-align: center; padding: 100px 20px; color: #aaa; font-size: 0.75em; letter-spacing: 4px; text-transform: uppercase; border-top: 1px solid #f5f5f5; }
+        .footer-link { color: var(--primary); text-decoration: none; font-weight: 600; display: block; margin-bottom: 20px; letter-spacing: 2px; }
 
         @media (max-width: 768px) {
             .gallery { grid-template-columns: 1fr; }
             .item img { height: 400px; }
+            nav { padding: 20px; }
         }
     </style>
 </head>
 <body>
 
-<nav><a href="index.html" class="back-link">← Početna</a></nav>
+<nav>
+    <a href="index.html" class="back-link">← Početna</a>
+    <a href="https://www.instagram.com/deciji_namestaj_od_drveta_2/" target="_blank" class="order-nav-link">Poruči putem Instagrama</a>
+</nav>
 
 <header>
     <h1>Katalog</h1>
@@ -99,8 +122,8 @@
     <div class="item">
         <img src="stolice-zeka-meda-klupica-polica-oblacic.jpg" alt="Klupica Polica" onclick="openModal(this.src)">
         <div class="item-info">
-            <span class="item-title">Komplet za sobu</span>
-            <p class="item-desc">Multifunkcionalna klupica, stolice i zidna polica u obliku oblaka. Kompletno rešenje za enterijer dečijeg kutka.</p>
+            <span class="item-title">Sistem za sobu</span>
+            <p class="item-desc">Multifunkcionalna klupica i zidna polica u obliku oblačka. Kompletno rešenje za enterijer dečijeg kutka.</p>
         </div>
     </div>
     <div class="item">
@@ -120,8 +143,8 @@
     <div class="item">
         <img src="decije-stolice-igraonica.jpg" alt="Igraonica Fokus" onclick="openModal(this.src)">
         <div class="item-info">
-            <span class="item-title">Classic Pastel</span>
-            <p class="item-desc">Tradicionalni modeli stolica u pastelnim nijansama. Lako održavanje i otpornost na habanje.</p>
+            <span class="item-title">Classic White</span>
+            <p class="item-desc">Tradicionalni modeli stolica u beloj pokrivnoj boji. Lako održavanje i otpornost na habanje.</p>
         </div>
     </div>
     <div class="item">
@@ -142,14 +165,17 @@
         <img src="decije-stolice-izrada-radionica.jpg" alt="Radionica Final" onclick="openModal(this.src)">
         <div class="item-info">
             <span class="item-title">Završna montaža</span>
-            <p class="item-desc">Pogled u radni proces.</p>
+            <p class="item-desc">Pogled u radni proces u Kovinu. Ručna provera svakog komada nameštaja pre pakovanja.</p>
         </div>
     </div>
 </div>
 
 <div id="myModal" class="modal"><span class="close" onclick="closeModal()">&times;</span><img class="modal-content" id="img01"></div>
 
-<footer>&copy; 2026 SWEET WOOD. SCANDINAVIAN QUALITY. KOVIN.</footer>
+<footer>
+    <a href="https://www.instagram.com/deciji_namestaj_od_drveta_2/" target="_blank" class="footer-link">ZAPRATI NAS & PORUČI NA INSTAGRAMU</a>
+    &copy; 2026 SWEET WOOD. SCANDINAVIAN QUALITY. KOVIN.
+</footer>
 
 <script>
     function openModal(src) { document.getElementById("myModal").style.display = "block"; document.getElementById("img01").src = src; }

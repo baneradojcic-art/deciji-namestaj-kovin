@@ -9,24 +9,26 @@
         :root { --primary: #121212; --accent: #d35400; --bg: #ffffff; }
         body { font-family: 'Inter', sans-serif; line-height: 1.6; color: var(--primary); background-color: var(--bg); margin: 0; padding: 0; }
         
-        /* Navigacija fiksirana da ne beži */
+        /* Navigacija - fiksna visina da ne prekriva sredinu ekrana */
         nav { 
             position: absolute; 
             top: 0; 
             left: 0; 
             width: 100%; 
-            padding: 30px; 
+            height: 100px;
+            padding: 0 40px; 
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
             box-sizing: border-box; 
-            z-index: 100;
+            z-index: 1000;
         }
         .logo { font-size: 1.1em; letter-spacing: 5px; text-transform: uppercase; font-weight: 200; text-decoration: none; color: #fff; }
-        .nav-insta { color: #fff; text-decoration: none; font-size: 1.5em; }
+        .nav-insta { color: #fff; text-decoration: none; font-size: 1.5em; z-index: 1001; }
 
-        /* Hero sekcija */
+        /* Hero sekcija - centrirana */
         .hero { 
+            position: relative;
             height: 100vh; 
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('premium-decija-stolica-ovcica-jasen-prirodna-vuna-ekoloski-vosak.jpg'); 
             background-size: cover; 
@@ -38,34 +40,38 @@
             text-align: center; 
             color: #fff;
         }
+        .hero-content { position: relative; z-index: 500; }
         .hero h1 { font-size: clamp(2.5em, 7vw, 4.5em); letter-spacing: 15px; text-transform: uppercase; font-weight: 200; margin: 0; }
         .hero p { font-size: 0.8em; letter-spacing: 5px; text-transform: uppercase; margin-top: 20px; font-weight: 300; }
         
-        /* Dugme koje mora da radi */
+        /* Dugme - izolovano sa visokim z-indexom */
         .cta-btn { 
             display: inline-block; 
             margin-top: 50px; 
-            padding: 15px 45px; 
+            padding: 18px 50px; 
             border: 1px solid #fff; 
             text-decoration: none; 
             color: #fff; 
-            font-size: 0.75em; 
+            font-size: 0.8em; 
             letter-spacing: 3px; 
             text-transform: uppercase; 
             transition: 0.4s;
-            cursor: pointer;
             position: relative;
-            z-index: 110;
+            z-index: 9999;
+            cursor: pointer;
+            background: rgba(255,255,255,0.05);
         }
         .cta-btn:hover { background: #fff; color: #000; }
 
-        /* Sekcija Naša Priča */
+        /* Donja sekcija */
         .story-section { 
             padding: 120px 20px; 
             text-align: center; 
             max-width: 800px; 
             margin: 0 auto; 
-            background: var(--bg);
+            background: #fff;
+            position: relative;
+            z-index: 10;
         }
         .story-section h2 { font-size: 2em; letter-spacing: 5px; text-transform: uppercase; font-weight: 300; margin-bottom: 30px; }
         .story-section p { color: #666; font-size: 1.05em; line-height: 2; font-weight: 300; }
@@ -83,9 +89,11 @@
 </nav>
 
 <div class="hero">
-    <h1>KOLEKCIJA 2026</h1>
-    <p>Ručni rad iz porodične radionice u Kovinu</p>
-    <a href="katalog.html" class="cta-btn">Pogledaj Katalog</a>
+    <div class="hero-content">
+        <h1>KOLEKCIJA 2026</h1>
+        <p>Ručni rad iz porodične radionice u Kovinu</p>
+        <a href="katalog.html" class="cta-btn">Pogledaj Katalog</a>
+    </div>
 </div>
 
 <div class="story-section">

@@ -6,123 +6,80 @@
     <title>SWEET WOOD | Nordic Design Kovin</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --primary: #121212; --accent: #d35400; --bg: #ffffff; --text-muted: #666; }
+        :root { --primary: #121212; --accent: #d35400; --bg: #ffffff; }
         body { font-family: 'Inter', sans-serif; line-height: 1.6; color: var(--primary); background-color: var(--bg); margin: 0; }
         
-        /* NAVIGACIJA */
         nav { 
-            padding: 25px; 
+            padding: 30px; 
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
-            max-width: 1300px; 
+            max-width: 1200px; 
             margin: 0 auto; 
-            position: absolute; width: 100%; box-sizing: border-box; z-index: 100;
+            position: absolute; width: 100%; box-sizing: border-box; z-index: 10;
         }
-        .logo { font-size: 1.2em; letter-spacing: 5px; text-transform: uppercase; font-weight: 200; text-decoration: none; color: #fff; }
-        .logo span { color: var(--accent); }
+        .logo { font-size: 1.1em; letter-spacing: 5px; text-transform: uppercase; font-weight: 200; text-decoration: none; color: #fff; }
         
-        .order-nav-link { 
-            text-decoration: none; 
-            color: #fff; 
-            font-size: 0.75em; 
-            font-weight: 400; 
-            text-transform: uppercase; 
-            letter-spacing: 2px; 
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: 0.3s;
-        }
-        .order-nav-link:hover { opacity: 0.7; }
+        .nav-insta { color: #fff; text-decoration: none; font-size: 1.2em; transition: 0.3s; }
+        .nav-insta:hover { color: var(--accent); }
 
-        /* HERO SEKCIJA */
         .hero { 
             height: 100vh; 
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('premium-decija-stolica-ovcica-jasen-prirodna-vuna-ekoloski-vosak.jpg'); 
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('premium-decija-stolica-ovcica-jasen-prirodna-vuna-ekoloski-vosak.jpg'); 
             background-size: cover; 
             background-position: center; 
             display: flex; 
+            flex-direction: column;
             justify-content: center; 
             align-items: center; 
             text-align: center; 
             color: #fff; 
         }
-        .hero-content { max-width: 700px; padding: 20px; }
-        .hero h1 { font-size: clamp(2.5em, 8vw, 4.5em); letter-spacing: 15px; text-transform: uppercase; font-weight: 200; margin: 0; }
+        .hero h1 { font-size: clamp(2.5em, 7vw, 4.5em); letter-spacing: 15px; text-transform: uppercase; font-weight: 200; margin: 0; }
         .hero p { font-size: 0.8em; letter-spacing: 5px; text-transform: uppercase; margin-top: 20px; font-weight: 300; }
         
         .cta-btn { 
             display: inline-block; 
             margin-top: 50px; 
-            padding: 15px 40px; 
+            padding: 15px 45px; 
             border: 1px solid #fff; 
             text-decoration: none; 
             color: #fff; 
             font-size: 0.75em; 
             letter-spacing: 3px; 
             text-transform: uppercase; 
-            transition: 0.4s ease; 
+            transition: 0.4s; 
         }
         .cta-btn:hover { background: #fff; color: #000; }
 
-        /* NAŠA PRIČA SEKCIJA */
-        .story { 
-            display: grid; 
-            grid-template-columns: 1fr 1fr; 
-            align-items: center; 
-            max-width: 1300px; 
-            margin: 100px auto; 
-            padding: 0 20px; 
-            gap: 80px; 
-        }
-        .story-img { width: 100%; height: 650px; object-fit: cover; }
-        
-        .story-content { padding-right: 60px; }
-        .story h2 { font-size: clamp(1.8em, 4vw, 2.5em); letter-spacing: 5px; text-transform: uppercase; font-weight: 300; margin: 0; }
-        .story-p { color: var(--text-muted); font-size: 0.95em; line-height: 2; margin-top: 30px; font-weight: 300; }
-        
-        /* FOOTER */
-        footer { text-align: center; padding: 80px 20px; color: #aaa; font-size: 0.7em; letter-spacing: 4px; text-transform: uppercase; border-top: 1px solid #f5f5f5; }
+        .story-section { padding: 100px 20px; text-align: center; max-width: 800px; margin: 0 auto; }
+        .story-section h2 { font-size: 2em; letter-spacing: 5px; text-transform: uppercase; font-weight: 300; margin-bottom: 30px; }
+        .story-section p { color: #666; font-size: 1em; line-height: 2; font-weight: 300; }
 
-        /* MOBILNA ODZIVNOST */
-        @media (max-width: 900px) {
-            .story { grid-template-columns: 1fr; gap: 50px; text-align: center; margin: 80px auto; }
-            .story-content { padding: 0; order: 2; }
-            .story-img { height: 450px; order: 1; }
-            nav { padding: 20px; }
-            .hero-content { padding: 10px; }
-        }
+        footer { text-align: center; padding: 60px; color: #aaa; font-size: 0.7em; letter-spacing: 3px; text-transform: uppercase; border-top: 1px solid #f5f5f5; }
     </style>
 </head>
 <body>
 
 <nav>
-    <a href="index.html" class="logo">SWEET WOOD<span>.</span></a>
-    <a href="https://www.instagram.com/deciji_namestaj_od_drveta_2/" target="_blank" class="order-nav-link">
-        <i class="fab fa-instagram"></i> <span>Poruči</span>
+    <a href="index.html" class="logo">SWEET WOOD</a>
+    <a href="https://www.instagram.com/deciji_namestaj_od_drveta_2/" target="_blank" class="nav-insta">
+        <i class="fab fa-instagram"></i>
     </a>
 </nav>
 
 <div class="hero">
-    <div class="hero-content">
-        <h1>KOLEKCIJA 2026</h1>
-        <p>Prestižni nameštaj za najmlađe</p>
-        <a href="katalog.html" class="cta-btn">Pogledaj Katalog</a>
-    </div>
+    <h1>KOLEKCIJA 2026</h1>
+    <p>Ručni rad iz porodične radionice u Kovinu</p>
+    <a href="katalog.html" class="cta-btn">Pogledaj Katalog</a>
 </div>
 
-<div class="story">
-    <img src="premium-decija-stolica-ovcica-jasen-prirodna-vuna-ekoloski-vosak.jpg" alt="Sweet Wood detalj" class="story-img">
-    
-    <div class="story-content">
-        <h2>Naša Priča</h2>
-        <p class="story-p">U srcu Kovina, u našoj porodičnoj radionici, svaki komad nameštaja Sweet Wood nastaje sa posebnom pažnjom. Verujemo da deca zaslužuju nameštaj koji je ujedno čvrst, bezbedan i inspirativan.<br><br>
-        Fokusirani smo na skandinavski dizajn i najkvalitetnije prirodne materijale – plemeniti jasen, parena bukva i breza. Koristimo isključivo ekološke voskove i vodene boje, kako bismo osigurali zdravo okruženje za igru i odrastanje. Sweet Wood nije samo nameštaj, to je investicija u bezbedne uspomene vaše porodice.</p>
-    </div>
+<div class="story-section">
+    <h2>Naša Priča</h2>
+    <p>U našoj radionici u Kovinu, svaki komad Sweet Wood nameštaja nastaje sa vizijom da traje generacijama. Koristimo plemeniti jasen i bukvu, obrađene prirodnim voskovima, kako bismo stvorili bezbedno i toplo okruženje za odrastanje.<br><br>Fokusirani smo na skandinavski minimalizam i vrhunsku završnu obradu, spajajući prirodnu lepotu drveta sa funkcionalnošću dečijeg kutka.</p>
 </div>
 
-<footer>&copy; 2026 SWEET WOOD. SCANDINAVIAN QUALITY. KOVIN.</footer>
+<footer>&copy; 2026 SWEET WOOD. KOVIN.</footer>
 
 </body>
 </html>

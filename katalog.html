@@ -3,211 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SWEET WOOD | Kolekcija</title>
+    <title>SWEET WOOD | Nordic Design Kovin</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --primary: #121212; --accent: #d35400; --bg: #ffffff; }
+        :root { --primary: #121212; --accent: #d35400; --bg: #ffffff; --text-muted: #666; }
         body { font-family: 'Inter', sans-serif; line-height: 1.6; color: var(--primary); background-color: var(--bg); margin: 0; }
         
+        /* NAVIGACIJA */
         nav { 
-            padding: 30px; 
+            padding: 25px; 
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
-            max-width: 1200px; 
+            max-width: 1300px; 
             margin: 0 auto; 
+            position: absolute; width: 100%; box-sizing: border-box; z-index: 100;
         }
-        .back-link { text-decoration: none; color: #888; font-size: 0.8em; text-transform: uppercase; letter-spacing: 2px; }
+        .logo { font-size: 1.2em; letter-spacing: 5px; text-transform: uppercase; font-weight: 200; text-decoration: none; color: #fff; }
+        .logo span { color: var(--accent); }
         
         .order-nav-link { 
             text-decoration: none; 
-            color: var(--primary); 
-            font-size: 0.8em; 
-            font-weight: 600; 
+            color: #fff; 
+            font-size: 0.75em; 
+            font-weight: 400; 
             text-transform: uppercase; 
             letter-spacing: 2px; 
             display: flex;
             align-items: center;
             gap: 10px;
+            transition: 0.3s;
         }
-        .order-nav-link i { font-size: 1.4em; color: var(--primary); }
+        .order-nav-link:hover { opacity: 0.7; }
 
-        header { padding: 40px 20px 80px; text-align: center; }
-        header h1 { font-size: clamp(1.8em, 5vw, 2.5em); letter-spacing: 10px; text-transform: uppercase; font-weight: 200; margin: 0; }
-        header p { font-size: 0.75em; letter-spacing: 4px; color: var(--accent); text-transform: uppercase; margin-top: 15px; }
-
-        .gallery { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
-            gap: 50px; 
-            max-width: 1400px; 
-            margin: 0 auto 100px; 
-            padding: 0 20px; 
+        /* HERO SEKCIJA */
+        .hero { 
+            height: 100vh; 
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('premium-decija-stolica-ovcica-jasen-prirodna-vuna-ekoloski-vosak.jpg'); 
+            background-size: cover; 
+            background-position: center; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center; 
+            color: #fff; 
         }
+        .hero-content { max-width: 700px; padding: 20px; }
+        .hero h1 { font-size: clamp(2.5em, 8vw, 4.5em); letter-spacing: 15px; text-transform: uppercase; font-weight: 200; margin: 0; }
+        .hero p { font-size: 0.8em; letter-spacing: 5px; text-transform: uppercase; margin-top: 20px; font-weight: 300; }
         
-        .item { text-align: center; background: #fff; }
-        .item img { 
-            width: 100%; 
-            height: 480px; 
-            object-fit: cover; 
-            cursor: pointer; 
-            transition: 0.5s ease; 
-            border: 1px solid #f2f2f2;
-        }
-        .item img:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.06); }
-
-        .item-info { padding: 30px 15px; }
-        .item-title { font-size: 1.1em; letter-spacing: 2px; text-transform: uppercase; font-weight: 400; display: block; margin-bottom: 12px; color: #000; }
-        .item-desc { color: #666; font-size: 0.85em; font-weight: 300; line-height: 1.8; margin: 0 auto; max-width: 320px; }
-
-        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.98); }
-        .modal-content { margin: auto; display: block; max-width: 90%; max-height: 85vh; padding-top: 40px; }
-        .close { position: absolute; top: 20px; right: 40px; font-size: 40px; cursor: pointer; color: #000; font-weight: 200; }
-
-        footer { text-align: center; padding: 100px 20px; color: #aaa; font-size: 0.7em; letter-spacing: 4px; text-transform: uppercase; border-top: 1px solid #f5f5f5; }
-        .footer-link { 
-            color: var(--primary); 
+        .cta-btn { 
+            display: inline-block; 
+            margin-top: 50px; 
+            padding: 15px 40px; 
+            border: 1px solid #fff; 
             text-decoration: none; 
-            font-weight: 600; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 25px; 
-            letter-spacing: 2px; 
+            color: #fff; 
+            font-size: 0.75em; 
+            letter-spacing: 3px; 
+            text-transform: uppercase; 
+            transition: 0.4s ease; 
         }
-        .footer-link i { font-size: 1.8em; }
+        .cta-btn:hover { background: #fff; color: #000; }
 
-        @media (max-width: 768px) {
-            .gallery { grid-template-columns: 1fr; }
-            .item img { height: 400px; }
+        /* NAŠA PRIČA SEKCIJA */
+        .story { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            align-items: center; 
+            max-width: 1300px; 
+            margin: 100px auto; 
+            padding: 0 20px; 
+            gap: 80px; 
+        }
+        .story-img { width: 100%; height: 650px; object-fit: cover; }
+        
+        .story-content { padding-right: 60px; }
+        .story h2 { font-size: clamp(1.8em, 4vw, 2.5em); letter-spacing: 5px; text-transform: uppercase; font-weight: 300; margin: 0; }
+        .story-p { color: var(--text-muted); font-size: 0.95em; line-height: 2; margin-top: 30px; font-weight: 300; }
+        
+        /* FOOTER */
+        footer { text-align: center; padding: 80px 20px; color: #aaa; font-size: 0.7em; letter-spacing: 4px; text-transform: uppercase; border-top: 1px solid #f5f5f5; }
+
+        /* MOBILNA ODZIVNOST */
+        @media (max-width: 900px) {
+            .story { grid-template-columns: 1fr; gap: 50px; text-align: center; margin: 80px auto; }
+            .story-content { padding: 0; order: 2; }
+            .story-img { height: 450px; order: 1; }
             nav { padding: 20px; }
-            .order-nav-link span { display: none; } /* Na mobu ostaje samo ikonica radi mesta */
+            .hero-content { padding: 10px; }
         }
     </style>
 </head>
 <body>
 
 <nav>
-    <a href="index.html" class="back-link">← Početna</a>
+    <a href="index.html" class="logo">SWEET WOOD<span>.</span></a>
     <a href="https://www.instagram.com/deciji_namestaj_od_drveta_2/" target="_blank" class="order-nav-link">
-        <i class="fab fa-instagram"></i> <span>Poruči na Instagramu</span>
+        <i class="fab fa-instagram"></i> <span>Poruči</span>
     </a>
 </nav>
 
-<header>
-    <h1>Katalog</h1>
-    <p>Zanatska preciznost i prirodni materijali</p>
-</header>
-
-<div class="gallery">
-    <div class="item">
-        <img src="premium-decija-stolica-ovcica-jasen-prirodna-vuna-ekoloski-vosak.jpg" alt="Ovčica Jasen" onclick="openModal(this.src)">
-        <div class="item-info">
-            <span class="item-title">Stolica Ovčica</span>
-            <p class="item-desc">Ekskluzivni model izrađen od masiva jasena. Sedalni deo tapaciran prirodnom vunom. Završna obrada ekološkim voskom.</p>
-        </div>
-    </div>
-    <div class="item">
-        <img src="premium-decija-stolica-irvas-jasen-vuna-masiv-ekoloske-boje.jpg" alt="Irvas Jasen" onclick="openModal(this.src)">
-        <div class="item-info">
-            <span class="item-title">Stolica Irvas</span>
-            <p class="item-desc">Kombinacija masiva jasena i vune. Ergonomski oblikovan naslon sa naglašenom teksturom plemenitog drveta.</p>
-        </div>
-    </div>
-    <div class="item">
-        <img src="premium-decije-stolice-irvas-ovcica-jasen-vuna.jpg" alt="Set Irvas Ovčica" onclick="openModal(this.src)">
-        <div class="item-info">
-            <span class="item-title">Premium Duo Set</span>
-            <p class="item-desc">Set stolica "Ovčica" i "Irvas" u natur obradi. Najčvršća konstrukcija od jasena za dugotrajnu upotrebu.</p>
-        </div>
-    </div>
-    <div class="item">
-        <img src="deciji-komplet-zeka-meda-sto-ekoloske-boje-drvo.jpg" alt="Zeka Meda" onclick="openModal(this.src)">
-        <div class="item-info">
-            <span class="item-title">Set Zeka & Meda</span>
-            <p class="item-desc">Komplet za igru od parene bukve i šperploče. Bojeno atestiranim vodenim bojama bezbednim za decu.</p>
-        </div>
-    </div>
-    <div class="item">
-        <img src="deciji-komplet-sto-stolice-oblak-bundeva.jpg" alt="Oblak Bundeva" onclick="openModal(this.src)">
-        <div class="item-info">
-            <span class="item-title">Set Oblak & Bundeva</span>
-            <p class="item-desc">Specifičan dizajn ploče stola u obliku oblaka. Stabilna konstrukcija sa masivnim drvenim nogarima.</p>
-        </div>
-    </div>
-    
-    <div class="item">
-        <img src="stolice-zeka-meda-klupica-polica-oblacic.jpg" alt="Klupica Polica Zeka Meda" onclick="openModal(this.src)">
-        <div class="item-info">
-            <span class="item-title">Zeka, Meda & Oblačić</span>
-            <p class="item-desc">Kompletan set za dečiji kutak: stolice Zeka i Meda, višenamenska klupica i zidna polica u obliku oblačka. Spoj funkcionalnosti i mašte.</p>
-        </div>
-    </div>
-    
-    <div class="item">
-        <img src="decije-stolice-i-sto-drvo-sper.jpg" alt="Sto Šper" onclick="openModal(this.src)">
-        <div class="item-info">
-            <span class="item-title">Minimalist Nordic</span>
-            <p class="item-desc">Minimalistički sto i stolice od brezine šperploče vrhunskog kvaliteta. Čiste linije i prirodna natur obrada.</p>
-        </div>
-    </div>
-    <div class="item">
-        <img src="decije-stolice-igraonica-drvo-ekoloske-boje.jpg" alt="Igraonica" onclick="openModal(this.src)">
-        <div class="item-info">
-            <span class="item-title">Playroom Kolekcija</span>
-            <p class="item-desc">Stolice povećane otpornosti namenjene opremanju igraonica i vrtića. Testirana stabilnost i spojevi.</p>
-        </div>
-    </div>
-    
-    <div class="item">
-        <img src="decije-stolice-igraonica.jpg" alt="Igraonica Kolor" onclick="openModal(this.src)">
-        <div class="item-info">
-            <span class="item-title">Classic Color</span>
-            <p class="item-desc">Tradicionalni modeli stolica u paleti pastelnih boja (roze, plava, siva...). Lako održavanje i otpornost na habanje.</p>
-        </div>
-    </div>
-    
-    <div class="item">
-        <img src="decije-stolice-izrada-masiv-drvo-sper-bukva-jasen-radionica.jpg" alt="Masiv Izrada" onclick="openModal(this.src)">
-        <div class="item-info">
-            <span class="item-title">Materijali u pripremi</span>
-            <p class="item-desc">Selektovani komadi bukovog i jasenovog masiva pre finalne faze obrade i montaže.</p>
-        </div>
-    </div>
-    <div class="item">
-        <img src="decije-stolice-izrada-radionica-drvo-sper.jpg" alt="Radionica Šper" onclick="openModal(this.src)">
-        <div class="item-info">
-            <span class="item-title">Zanatski detalj</span>
-            <p class="item-desc">Fokus na mašinsku i ručnu obradu ivica. Svaki detalj je fino brušen radi maksimalne bezbednosti dece.</p>
-        </div>
-    </div>
-    <div class="item">
-        <img src="decije-stolice-izrada-radionica.jpg" alt="Radionica Final" onclick="openModal(this.src)">
-        <div class="item-info">
-            <span class="item-title">Završna montaža</span>
-            <p class="item-desc">Pogled u radni proces u Kovinu. Ručna provera svakog komada nameštaja pre pakovanja.</p>
-        </div>
+<div class="hero">
+    <div class="hero-content">
+        <h1>KOLEKCIJA 2026</h1>
+        <p>Prestižni nameštaj za najmlađe</p>
+        <a href="katalog.html" class="cta-btn">Pogledaj Katalog</a>
     </div>
 </div>
 
-<div id="myModal" class="modal"><span class="close" onclick="closeModal()">&times;</span><img class="modal-content" id="img01"></div>
+<div class="story">
+    <img src="premium-decija-stolica-ovcica-jasen-prirodna-vuna-ekoloski-vosak.jpg" alt="Sweet Wood detalj" class="story-img">
+    
+    <div class="story-content">
+        <h2>Naša Priča</h2>
+        <p class="story-p">U srcu Kovina, u našoj porodičnoj radionici, svaki komad nameštaja Sweet Wood nastaje sa posebnom pažnjom. Verujemo da deca zaslužuju nameštaj koji je ujedno čvrst, bezbedan i inspirativan.<br><br>
+        Fokusirani smo na skandinavski dizajn i najkvalitetnije prirodne materijale – plemeniti jasen, parena bukva i breza. Koristimo isključivo ekološke voskove i vodene boje, kako bismo osigurali zdravo okruženje za igru i odrastanje. Sweet Wood nije samo nameštaj, to je investicija u bezbedne uspomene vaše porodice.</p>
+    </div>
+</div>
 
-<footer>
-    <a href="https://www.instagram.com/deciji_namestaj_od_drveta_2/" target="_blank" class="footer-link">
-        <i class="fab fa-instagram"></i> <span>PORUČI NA INSTAGRAMU</span>
-    </a>
-    &copy; 2026 SWEET WOOD. KOVIN.
-</footer>
-
-<script>
-    function openModal(src) { document.getElementById("myModal").style.display = "block"; document.getElementById("img01").src = src; }
-    function closeModal() { document.getElementById("myModal").style.display = "none"; }
-    window.onclick = function(event) {
-        let modal = document.getElementById("myModal");
-        if (event.target == modal) { modal.style.display = "none"; }
-    }
-</script>
+<footer>&copy; 2026 SWEET WOOD. SCANDINAVIAN QUALITY. KOVIN.</footer>
 
 </body>
 </html>

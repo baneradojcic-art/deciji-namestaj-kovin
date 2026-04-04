@@ -1,104 +1,196 @@
-<!DOCTYPE html>
+
 <html lang="sr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SWEET WOOD | Katalog</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Sweet Wood | Ručno rađen dečiji nameštaj</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #121212; --accent: #d35400; --bg: #ffffff; }
-        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: var(--primary); background-color: var(--bg); margin: 0; padding: 0; }
-        
-        nav { 
-            padding: 30px; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            position: relative;
-            z-index: 9999;
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #FDFCFB;
         }
-        .back-link { text-decoration: none; color: #121212; font-size: 0.85em; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; }
-        .order-nav-link { text-decoration: none; color: var(--primary); font-size: 0.8em; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; display: flex; align-items: center; gap: 10px; }
-
-        header { padding: 40px 20px 80px; text-align: center; }
-        header h1 { font-size: clamp(1.8em, 5vw, 2.5em); letter-spacing: 10px; text-transform: uppercase; font-weight: 200; margin: 0; }
-        header p { font-size: 0.75em; letter-spacing: 4px; color: var(--accent); text-transform: uppercase; margin-top: 15px; }
-
-        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 50px; max-width: 1400px; margin: 0 auto 100px; padding: 0 20px; }
-        .item { text-align: center; }
-        .item img { width: 100%; height: 480px; object-fit: cover; cursor: pointer; transition: 0.5s ease; border: 1px solid #f2f2f2; }
-        .item img:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.06); }
-        .item-info { padding: 30px 15px; }
-        .item-title { font-size: 1.1em; letter-spacing: 2px; text-transform: uppercase; font-weight: 400; display: block; margin-bottom: 12px; }
-        .item-desc { color: #666; font-size: 0.85em; font-weight: 300; line-height: 1.8; margin: 0 auto; max-width: 320px; }
-
-        .modal { display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.98); }
-        .modal-content { margin: auto; display: block; max-width: 90%; max-height: 85vh; padding-top: 40px; }
-        .close { position: absolute; top: 20px; right: 40px; font-size: 40px; cursor: pointer; color: #000; }
-
-        footer { text-align: center; padding: 100px 20px; color: #aaa; font-size: 0.7em; letter-spacing: 4px; text-transform: uppercase; border-top: 1px solid #f5f5f5; }
-        @media (max-width: 768px) { .order-nav-link span { display: none; } }
+        .nordic-card:hover {
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
     </style>
 </head>
-<body>
+<body class="text-slate-800">
 
-<nav>
-    <a href="index.html" class="back-link">← Početna strana</a>
-    <a href="https://www.instagram.com/deciji_namestaj_od_drveta_2/" target="_blank" class="order-nav-link">
-        <i class="fab fa-instagram"></i> <span>Poruči na Instagramu</span>
-    </a>
-</nav>
-
-<header>
-    <h1>Katalog</h1>
-    <p>Zanatska preciznost iz porodične radionice</p>
-</header>
-
-<div class="gallery">
-    <div class="item"><img src="premium-decija-stolica-ovcica-jasen-prirodna-vuna-ekoloski-vosak.jpg" onclick="openModal(this.src)"><div class="item-info"><span class="item-title">Stolica Ovčica</span><p class="item-desc">Masiv jasena, prirodna vuna i ekološki vosak.</p></div></div>
-    <div class="item"><img src="premium-decija-stolica-irvas-jasen-vuna-masiv-ekoloske-boje.jpg" onclick="openModal(this.src)"><div class="item-info"><span class="item-title">Stolica Irvas</span><p class="item-desc">Ergonomski naslon od jasenovog drveta.</p></div></div>
-    <div class="item"><img src="premium-decije-stolice-irvas-ovcica-jasen-vuna.jpg" onclick="openModal(this.src)"><div class="item-info"><span class="item-title">Premium Duo Set</span><p class="item-desc">Natur obrada, najčvršća konstrukcija.</p></div></div>
-    <div class="item"><img src="deciji-komplet-zeka-meda-sto-ekoloske-boje-drvo.jpg" onclick="openModal(this.src)"><div class="item-info"><span class="item-title">Set Zeka & Meda</span><p class="item-desc">Parena bukva i bezbedne vodene boje.</p></div></div>
-    <div class="item"><img src="deciji-komplet-sto-stolice-oblak-bundeva.jpg" onclick="openModal(this.src)"><div class="item-info"><span class="item-title">Set Oblak & Bundeva</span><p class="item-desc">Dizajnerski sto sa masivnim nogarima.</p></div></div>
-    <div class="item"><img src="stolice-zeka-meda-klupica-polica-oblacic.jpg" onclick="openModal(this.src)"><div class="item-info"><span class="item-title">Zeka, Meda & Oblačić</span><p class="item-desc">Kompletan set za dečiji kutak.</p></div></div>
-    <div class="item"><img src="decije-stolice-i-sto-drvo-sper.jpg" onclick="openModal(this.src)"><div class="item-info"><span class="item-title">Minimalist Nordic</span><p class="item-desc">Brezova šperploča vrhunskog kvaliteta.</p></div></div>
-    <div class="item"><img src="decije-stolice-igraonica-drvo-ekoloske-boje.jpg" onclick="openModal(this.src)"><div class="item-info"><span class="item-title">Playroom Kolekcija</span><p class="item-desc">Povećana otpornost za igraonice.</p></div></div>
-    <div class="item"><img src="decije-stolice-igraonica.jpg" onclick="openModal(this.src)"><div class="item-info"><span class="item-title">Classic Color</span><p class="item-desc">Stolice u pastelnim bojama, lako održavanje.</p></div></div>
-
-    <div class="item">
-        <img src="decije-stolice-izrada-radionica-drvo-sper.jpg" onclick="openModal(this.src)">
-        <div class="item-info">
-            <span class="item-title">Detalj obrade</span>
-            <p class="item-desc">Krupni kadar naslona od brezove šperploče. Vidljiva prirodna tekstura pre finalnog brušenja.</p>
+    <!-- Navigacija -->
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="text-2xl font-bold tracking-tight text-slate-900">
+                SWEET<span class="text-amber-700/70">WOOD</span>
+            </div>
+            <div class="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-widest">
+                <a href="#proizvodi" class="hover:text-amber-700 transition">Kolekcija</a>
+                <a href="#o-nama" class="hover:text-amber-700 transition">Naša Priča</a>
+                <a href="#kontakt" class="hover:text-amber-700 transition">Kontakt</a>
+            </div>
+            <button class="bg-slate-900 text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-slate-800 transition">
+                Naruči
+            </button>
         </div>
-    </div>
-    <div class="item">
-        <img src="decije-stolice-izrada-masiv-drvo-sper-bukva-jasen-radionica.jpg" onclick="openModal(this.src)">
-        <div class="item-info">
-            <span class="item-title">Sklopljeni modeli</span>
-            <p class="item-desc">Serija stolica mede i irvasa nakon sklapanja. Čvrsta konstrukcija spremna za finalnu kontrolu.</p>
+    </nav>
+
+    <!-- Hero Sekcija -->
+    <header class="relative h-[85vh] flex items-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <!-- Zameni putanju sa tvojom hero slikom sa GitHub-a -->
+            <img src="images/hero.jpg" alt="Nordijski dečiji kutak" class="w-full h-full object-cover opacity-90" onerror="this.src='https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&q=80'">
+            <div class="absolute inset-0 bg-gradient-to-r from-white/60 to-transparent"></div>
         </div>
-    </div>
-    <div class="item">
-        <img src="decije-stolice-izrada-radionica.jpg" onclick="openModal(this.src)">
-        <div class="item-info">
-            <span class="item-title">Finalna faza</span>
-            <p class="item-desc">Ručna provera svakog detalja pre nego što nameštaj krene put vašeg doma.</p>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-6">
+            <div class="max-w-2xl">
+                <span class="inline-block px-3 py-1 bg-amber-100 text-amber-800 text-xs font-bold rounded-full mb-4 uppercase tracking-widest">Ručni rad iz Srbije</span>
+                <h1 class="text-5xl md:text-7xl font-bold text-slate-900 leading-tight mb-6">
+                    Minimalizam za <br><span class="text-amber-800/80">maksimalnu maštu.</span>
+                </h1>
+                <p class="text-lg text-slate-600 mb-8 max-w-lg">
+                    Stvaramo bezbedan, održiv i inspirativan nameštaj od prirodnog drveta, dizajniran da raste zajedno sa vašim detetom.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#proizvodi" class="bg-amber-800 text-white px-8 py-4 rounded-lg font-semibold hover:bg-amber-900 transition shadow-lg shadow-amber-900/20">
+                        Istraži Kolekciju
+                    </a>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
+    </header>
 
-<div id="myModal" class="modal"><span class="close" onclick="closeModal()">&times;</span><img class="modal-content" id="img01"></div>
+    <!-- Karakteristike -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-amber-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-slate-900">Eko Materijali</h3>
+                    <p class="text-slate-500">Koristimo isključivo sertifikovano drvo i boje na bazi vode, bezbedne za najmlađe.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-amber-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-slate-900">Bezvremenski Dizajn</h3>
+                    <p class="text-slate-500">Čiste linije nordijskog stila koje se savršeno uklapaju u svaki moderan dom.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-amber-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-slate-900">Ručna Izrada</h3>
+                    <p class="text-slate-500">Svaki komad nameštaja je pažljivo obrađen rukama naših majstora u malim serijama.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<footer>&copy; 2026 SWEET WOOD. RUČNA IZRADA.</footer>
+    <!-- Proizvodi -->
+    <section id="proizvodi" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                <div>
+                    <h2 class="text-4xl font-bold text-slate-900 mb-4">Naši Omiljeni Komadi</h2>
+                    <p class="text-slate-500 max-w-lg">Pažljivo odabrana selekcija nameštaja koji podstiče detetovu nezavisnost po Montessori principima.</p>
+                </div>
+                <div class="flex space-x-2">
+                    <button class="p-3 border border-slate-200 rounded-full hover:bg-white transition">←</button>
+                    <button class="p-3 border border-slate-200 rounded-full hover:bg-white transition">→</button>
+                </div>
+            </div>
 
-<script>
-    function openModal(src) { document.getElementById("myModal").style.display = "block"; document.getElementById("img01").src = src; }
-    function closeModal() { document.getElementById("myModal").style.display = "none"; }
-    window.onclick = function(e) { if(e.target == document.getElementById("myModal")) closeModal(); }
-</script>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Proizvod 1 -->
+                <div class="nordic-card bg-white rounded-3xl overflow-hidden shadow-sm group">
+                    <div class="aspect-[4/5] overflow-hidden bg-slate-100">
+                        <img src="images/krevet.jpg" alt="Dečiji krevet" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1505693419148-433df7971793?auto=format&fit=crop&q=80'">
+                    </div>
+                    <div class="p-8">
+                        <h4 class="text-xl font-bold text-slate-900 mb-2">Montessori Krevet "Kućica"</h4>
+                        <p class="text-slate-500 text-sm mb-4">Puno drvo bukve, prirodni uljni premaz.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-lg font-bold text-amber-900">24.500 RSD</span>
+                            <button class="text-sm font-bold uppercase tracking-wider text-slate-400 hover:text-slate-900 transition">Detaljnije</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proizvod 2 -->
+                <div class="nordic-card bg-white rounded-3xl overflow-hidden shadow-sm group">
+                    <div class="aspect-[4/5] overflow-hidden bg-slate-100">
+                        <img src="images/stolica.jpg" alt="Dečiji stočić" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&q=80'">
+                    </div>
+                    <div class="p-8">
+                        <h4 class="text-xl font-bold text-slate-900 mb-2">Set "Mali Umetnik"</h4>
+                        <p class="text-slate-500 text-sm mb-4">Sto i dve stolice ergonomskog dizajna.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-lg font-bold text-amber-900">12.200 RSD</span>
+                            <button class="text-sm font-bold uppercase tracking-wider text-slate-400 hover:text-slate-900 transition">Detaljnije</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proizvod 3 -->
+                <div class="nordic-card bg-white rounded-3xl overflow-hidden shadow-sm group">
+                    <div class="aspect-[4/5] overflow-hidden bg-slate-100">
+                        <img src="images/polica.jpg" alt="Polica za igračke" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1594620302200-9a762244a156?auto=format&fit=crop&q=80'">
+                    </div>
+                    <div class="p-8">
+                        <h4 class="text-xl font-bold text-slate-900 mb-2">Polica "Planina"</h4>
+                        <p class="text-slate-500 text-sm mb-4">Idealna za knjige i omiljene igračke.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-lg font-bold text-amber-900">8.900 RSD</span>
+                            <button class="text-sm font-bold uppercase tracking-wider text-slate-400 hover:text-slate-900 transition">Detaljnije</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="kontakt" class="bg-slate-900 text-white py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="text-3xl font-bold mb-6">SWEET WOOD</div>
+                    <p class="text-slate-400 max-w-sm mb-8">
+                        Stvaramo uspomene koje traju. Naš nameštaj nije samo predmet, već deo odrastanja vaše dece.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition">IG</a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition">FB</a>
+                    </div>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-6 uppercase text-xs tracking-[0.2em] text-slate-500">Kontakt</h5>
+                    <ul class="space-y-4 text-slate-300">
+                        <li>info@sweetwood.rs</li>
+                        <li>+381 60 123 4567</li>
+                        <li>Radionica: Novi Sad, Srbija</li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-6 uppercase text-xs tracking-[0.2em] text-slate-500">Podrška</h5>
+                    <ul class="space-y-4 text-slate-300">
+                        <li>Dostava i montaža</li>
+                        <li>Održavanje drveta</li>
+                        <li>Česta pitanja</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between text-slate-500 text-sm">
+                <p>© 2024 Sweet Wood. Sva prava zadržana.</p>
+                <p>Dizajnirano s ljubavlju prema prirodi.</p>
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>

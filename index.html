@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="hr">
+<html lang="sr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sweet Wood | Nordijski dječji namještaj</title>
+    <title>Sweet Wood | Nordijski Dečiji Nameštaj</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
@@ -19,13 +19,14 @@
         }
         .serif { font-family: 'Playfair Display', serif; }
         
-        .hero-bg {
-            background-image: linear-gradient(rgba(255,255,255,0.15), rgba(255,255,255,0.15)), url('decije-stolice-novogodisnji-ambijent.jpg');
+        /* Ambient Background */
+        .hero-section {
+            background-image: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), url('decije-stolice-novogodisnji-ambijent.jpg');
             background-size: cover;
             background-position: center;
         }
 
-        /* Lightbox stilovi */
+        /* Lightbox - Modal za uvećanje slike */
         #lightbox {
             display: none;
             position: fixed;
@@ -34,7 +35,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
+            background-color: rgba(0, 0, 0, 0.95);
             justify-content: center;
             align-items: center;
             cursor: zoom-out;
@@ -42,23 +43,18 @@
         #lightbox img {
             max-width: 90%;
             max-height: 90%;
-            box-shadow: 0 0 30px rgba(0,0,0,0.5);
-            border-radius: 4px;
+            border-radius: 2px;
+            box-shadow: 0 0 50px rgba(0,0,0,0.5);
         }
-        .clickable-img {
-            cursor: zoom-in;
-            transition: transform 0.5s ease;
-        }
-        .clickable-img:hover {
-            transform: scale(1.03);
-        }
+        .zoom-img { cursor: zoom-in; transition: transform 0.4s ease; }
+        .zoom-img:hover { transform: scale(1.03); }
     </style>
 </head>
 <body class="antialiased">
 
     <!-- Lightbox Modal -->
-    <div id="lightbox" onclick="closeLightbox()">
-        <img id="lightbox-img" src="" alt="Uvećani prikaz">
+    <div id="lightbox" onclick="this.style.display='none'">
+        <img id="lightbox-img" src="" alt="Uvećana fotografija">
     </div>
 
     <!-- Navigacija -->
@@ -69,203 +65,227 @@
             </div>
             <div class="hidden md:flex space-x-10 text-[11px] font-bold uppercase tracking-[0.2em] text-stone-500">
                 <a href="#kolekcija" class="hover:text-stone-900 transition">Kolekcija</a>
-                <a href="#proces" class="hover:text-stone-900 transition">Izrada</a>
+                <a href="#proces" class="hover:text-stone-900 transition">Proces Izrade</a>
                 <a href="#kontakt" class="hover:text-stone-900 transition">Kontakt</a>
             </div>
-            <a href="https://www.instagram.com/deciji_namestaj_od_drveta_2/" target="_blank" class="bg-stone-900 text-white px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-stone-800 transition">
+            <a href="https://www.instagram.com/deciji_namestaj_od_drveta_2/" target="_blank" class="bg-stone-900 text-white px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-stone-800 transition shadow-sm">
                 Instagram
             </a>
         </div>
     </nav>
 
-    <!-- Hero -->
-    <header class="relative h-[90vh] flex items-center pt-20 hero-bg">
-        <div class="max-w-7xl mx-auto px-6 w-full">
+    <!-- Hero Sekcija -->
+    <header class="relative h-[95vh] flex items-center pt-20 hero-section">
+        <div class="max-w-7xl mx-auto px-6 w-full text-center md:text-left">
             <div class="max-w-xl bg-white/70 backdrop-blur-xl p-10 md:p-16 border border-white/80 rounded-sm shadow-sm">
-                <span class="inline-block mb-4 text-[10px] uppercase tracking-[0.4em] font-bold text-stone-400 italic">Ručni rad • Srbija</span>
-                <h1 class="text-5xl md:text-7xl serif font-bold mb-6 leading-tight text-stone-900 italic tracking-tighter">Prirodno <span class="font-normal text-stone-400 text-6xl">odrastanje.</span></h1>
-                <p class="text-stone-700 mb-8 font-light leading-relaxed">Dječji namještaj od masivnog drva, dizajniran za sigurnost i maštu, inspiriran skandinavskim minimalizmom.</p>
+                <span class="inline-block mb-4 text-[10px] uppercase tracking-[0.4em] font-bold text-stone-400 italic">Srpski Brend • Nordijski Dizajn</span>
+                <h1 class="text-5xl md:text-7xl serif font-bold mb-6 leading-tight text-stone-900 italic">Prirodno <span class="font-normal text-stone-500">odrastanje.</span></h1>
+                <p class="text-stone-700 mb-10 font-light leading-relaxed">Nameštaj od masivnog drveta koji raste sa vašim detetom. Bezbedno, toplo i večno.</p>
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="#kolekcija" class="bg-stone-900 text-white px-10 py-4 text-[10px] font-bold uppercase tracking-widest hover:bg-stone-800 transition text-center">Kolekcija</a>
-                    <a href="tel:+38162299151" class="bg-white/50 border border-stone-200 text-stone-900 px-10 py-4 text-[10px] font-bold uppercase tracking-widest hover:bg-white transition text-center tracking-widest">POZOVI NAS</a>
+                    <a href="#kolekcija" class="bg-stone-900 text-white px-10 py-4 text-[10px] font-bold uppercase tracking-widest hover:bg-stone-800 transition text-center tracking-widest">Kolekcija</a>
+                    <a href="https://www.instagram.com/deciji_namestaj_od_drveta_2/" target="_blank" class="bg-white/50 border border-stone-200 text-stone-900 px-10 py-4 text-[10px] font-bold uppercase tracking-widest hover:bg-white transition text-center tracking-widest uppercase">Poruči</a>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Kolekcija - 10 slika proizvoda -->
+    <!-- Kolekcija - SVIH 11 slika gotovih proizvoda -->
     <section id="kolekcija" class="py-32 px-6 max-w-7xl mx-auto">
         <div class="text-center mb-24">
-            <h2 class="text-4xl md:text-5xl serif mb-6 italic">Naša Ponuda</h2>
-            <p class="text-stone-400 uppercase text-[10px] tracking-[0.4em]">Kliknite na sliku za uvećani prikaz</p>
+            <h2 class="text-4xl md:text-6xl serif mb-6 italic">Naša Ponuda</h2>
+            <p class="text-stone-400 uppercase text-[10px] tracking-[0.4em] font-medium">Kliknite na sliku za punu veličinu</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-16 gap-x-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-20 gap-x-12">
             
-            <!-- Proizvodi -->
+            <!-- 1 -->
             <div class="group flex flex-col items-center">
-                <div class="aspect-[4/5] w-full bg-stone-50 overflow-hidden mb-6 border border-stone-100 p-4">
-                    <img src="premium-decija-stolica-irvas-jasen-vuna-masiv-ekoloske-boje.jpg" onclick="openLightbox(this.src)" class="w-full h-full object-cover clickable-img" alt="Premium Irvas">
+                <div class="aspect-[4/5] w-full bg-stone-50 overflow-hidden mb-8 border border-stone-100 p-4 shadow-sm">
+                    <img src="premium-decija-stolica-irvas-jasen-vuna-masiv-ekoloske-boje.jpg" onclick="openFull(this.src)" alt="Premium Irvas" class="w-full h-full object-cover zoom-img" loading="lazy">
                 </div>
-                <h3 class="text-xl serif italic mb-2 font-bold tracking-tight">Premium Irvas</h3>
-                <a href="https://www.instagram.com/deciji_namestaj_od_drveta_2/" target="_blank" class="text-[10px] font-bold uppercase tracking-widest border-b border-stone-900 pb-1 mt-2 hover:text-stone-500 transition">Naruči</a>
+                <h3 class="text-xl serif italic mb-2 font-bold italic tracking-tight">Premium Irvas</h3>
+                <a href="https://www.instagram.com/deciji_namestaj_od_drveta_2/" target="_blank" class="text-[10px] font-bold uppercase tracking-widest border-b border-stone-900 pb-1 mt-4 hover:text-stone-500 hover:border-stone-500 transition">Naruči</a>
             </div>
 
+            <!-- 2 -->
             <div class="group flex flex-col items-center">
-                <div class="aspect-[4/5] w-full bg-stone-50 overflow-hidden mb-6 border border-stone-100 p-4">
-                    <img src="premium-decija-stolica-ovcica-jasen-prirodna-vuna-ekoloski-vosak.jpg" onclick="openLightbox(this.src)" class="w-full h-full object-cover clickable-img" alt="Premium Ovčica">
+                <div class="aspect-[4/5] w-full bg-stone-50 overflow-hidden mb-8 border border-stone-100 p-4 shadow-sm">
+                    <img src="premium-decija-stolica-ovcica-jasen-prirodna-vuna-ekoloski-vosak.jpg" onclick="openFull(this.src)" alt="Premium Ovčica" class="w-full h-full object-cover zoom-img" loading="lazy">
                 </div>
-                <h3 class="text-xl serif italic mb-2 font-bold tracking-tight">Premium Ovčica</h3>
-                <a href="https://www.instagram.com/deciji_namestaj_od_drveta_2/" target="_blank" class="text-[10px] font-bold uppercase tracking-widest border-b border-stone-900 pb-1 mt-2 hover:text-stone-500 transition">Naruči</a>
+                <h3 class="text-xl serif italic mb-2 font-bold italic tracking-tight">Premium Ovčica</h3>
+                <a href="https://www.instagram.com/deciji_namestaj_od_drveta_2/" target="_blank" class="text-[10px] font-bold uppercase tracking-widest border-b border-stone-900 pb-1 mt-4 hover:text-stone-500 hover:border-stone-500 transition">Naruči</a>
             </div>
 
+            <!-- 3 -->
             <div class="group flex flex-col items-center">
-                <div class="aspect-[4/5] w-full bg-stone-50 overflow-hidden mb-6 border border-stone-100 p-4">
-                    <img src="premium-decije-stolica-irvas-ovcica-jasen-vuna.jpg" onclick="openLightbox(this.src)" class="w-full h-full object-cover clickable-img" alt="Set Irvas Ovčica">
+                <div class="aspect-[4/5] w-full bg-stone-50 overflow-hidden mb-8 border border-stone-100 p-4 shadow-sm">
+                    <img src="premium-decije-stolica-irvas-ovcica-jasen-vuna.jpg" onclick="openFull(this.src)" alt="Irvas i Ovčica Duo" class="w-full h-full object-cover zoom-img" loading="lazy">
                 </div>
-                <h3 class="text-xl serif italic mb-2 font-bold tracking-tight">Set "Šumski Duo"</h3>
-                <a href="https://www.instagram.com/deciji_namestaj_od_drveta_2/" target="_blank" class="text-[10px] font-bold uppercase tracking-widest border-b border-stone-900 pb-1 mt-2 hover:text-stone-500 transition">Naruči</a>
+                <h3 class="text-xl serif italic mb-2 font-bold italic tracking-tight">Set "Šumski Duo"</h3>
+                <a href="https://www.instagram.com/deciji_namestaj_od_drveta_2/" target="_blank" class="text-[10px] font-bold uppercase tracking-widest border-b border-stone-900 pb-1 mt-4 hover:text-stone-500 hover:border-stone-500 transition">Naruči</a>
             </div>
 
+            <!-- 4 -->
             <div class="group flex flex-col items-center">
-                <div class="aspect-[4/5] w-full bg-stone-50 overflow-hidden mb-6 border border-stone-100 p-4">
-                    <img src="premium-decije-stolica-ovcica-irvas-vuna-natur.jpg" onclick="openLightbox(this.src)" class="w-full h-full object-cover clickable-img" alt="Natur kolekcija">
+                <div class="aspect-[4/5] w-full bg-stone-50 overflow-hidden mb-8 border border-stone-100 p-4 shadow-sm">
+                    <img src="premium-decije-stolica-ovcica-irvas-vuna-natur.jpg" onclick="openFull(this.src)" alt="Natur kolekcija" class="w-full h-full object-cover zoom-img" loading="lazy">
                 </div>
-                <h3 class="text-xl serif italic mb-2 font-bold tracking-tight">Natur Kolekcija</h3>
-                <a href="https://www.instagram.com/deciji_namestaj_od_drveta_2/" target="_blank" class="text-[10px] font-bold uppercase tracking-widest border-b border-stone-900 pb-1 mt-2 hover:text-stone-500 transition">Naruči</a>
+                <h3 class="text-xl serif italic mb-2 font-bold italic tracking-tight">Natur Kolekcija</h3>
+                <a href="https://www.instagram.com/deciji_namestaj_od_drveta_2/" target="_blank" class="text-[10px] font-bold uppercase tracking-widest border-b border-stone-900 pb-1 mt-4 hover:text-stone-500 hover:border-stone-500 transition">Naruči</a>
             </div>
 
+            <!-- 5 -->
             <div class="group flex flex-col items-center">
-                <div class="aspect-[4/5] w-full bg-stone-50 overflow-hidden mb-6 border border-stone-100 p-4">
-                    <img src="deciji-komplet-zeka-meda-sto-ekoloske-boje-drvo.jpg" onclick="openLightbox(this.src)" class="w-full h-full object-cover clickable-img" alt="Zeka Meda Set">
+                <div class="aspect-[4/5] w-full bg-stone-50 overflow-hidden mb-8 border border-stone-100 p-4 shadow-sm">
+                    <img src="deciji-komplet-zeka-meda-sto-ekoloske-boje-drvo.jpg" onclick="openFull(this.src)" alt="Zeka Meda Set" class="w-full h-full object-cover zoom-img" loading="lazy">
                 </div>
-                <h3 class="text-xl serif italic mb-2 font-bold tracking-tight">Komplet Zeka & Meda</h3>
-                <a href="https://www.instagram.com/deciji_namestaj_od_drveta_2/" target="_blank" class="text-[10px] font-bold uppercase tracking-widest border-b border-stone-900 pb-1 mt-2 hover:text-stone-500 transition">Naruči</a>
+                <h3 class="text-xl serif italic mb-2 font-bold italic tracking-tight">Set "Zeka & Meda"</h3>
+                <a href="https://www.instagram.com/deciji_namestaj_od_drveta_2/" target="_blank" class="text-[10px] font-bold uppercase tracking-widest border-b border-stone-900 pb-1 mt-4 hover:text-stone-500 hover:border-stone-500 transition">Naruči</a>
             </div>
 
+            <!-- 6 -->
             <div class="group flex flex-col items-center">
-                <div class="aspect-[4/5] w-full bg-stone-50 overflow-hidden mb-6 border border-stone-100 p-4">
-                    <img src="deciji-komplet-sto-stolice-oblak-bundeva.jpg" onclick="openLightbox(this.src)" class="w-full h-full object-cover clickable-img" alt="Oblak stolice">
+                <div class="aspect-[4/5] w-full bg-stone-50 overflow-hidden mb-8 border border-stone-100 p-4 shadow-sm">
+                    <img src="deciji-komplet-sto-stolice-oblak-bundeva.jpg" onclick="openFull(this.src)" alt="Oblak stolice" class="w-full h-full object-cover zoom-img" loading="lazy">
                 </div>
-                <h3 class="text-xl serif italic mb-2 font-bold tracking-tight">Set "Oblak"</h3>
-                <a href="https://www.instagram.com/deciji_namestaj_od_drveta_2/" target="_blank" class="text-[10px] font-bold uppercase tracking-widest border-b border-stone-900 pb-1 mt-2 hover:text-stone-500 transition">Naruči</a>
+                <h3 class="text-xl serif italic mb-2 font-bold italic tracking-tight">Set "Oblak"</h3>
+                <a href="https://www.instagram.com/deciji_namestaj_od_drveta_2/" target="_blank" class="text-[10px] font-bold uppercase tracking-widest border-b border-stone-900 pb-1 mt-4 hover:text-stone-500 hover:border-stone-500 transition">Naruči</a>
             </div>
 
+            <!-- 7 -->
             <div class="group flex flex-col items-center">
-                <div class="aspect-[4/5] w-full bg-stone-50 overflow-hidden mb-6 border border-stone-100 p-4">
-                    <img src="decije-stolice-i-sto-drvo-sper.jpg" onclick="openLightbox(this.src)" class="w-full h-full object-cover clickable-img" alt="Šper namještaj">
+                <div class="aspect-[4/5] w-full bg-stone-50 overflow-hidden mb-8 border border-stone-100 p-4 shadow-sm">
+                    <img src="decije-stolice-i-sto-drvo-sper.jpg" onclick="openFull(this.src)" alt="Šper stolice" class="w-full h-full object-cover zoom-img" loading="lazy">
                 </div>
-                <h3 class="text-xl serif italic mb-2 font-bold tracking-tight">Nordic Šper Set</h3>
-                <a href="https://www.instagram.com/deciji_namestaj_od_drveta_2/" target="_blank" class="text-[10px] font-bold uppercase tracking-widest border-b border-stone-900 pb-1 mt-2 hover:text-stone-500 transition">Naruči</a>
+                <h3 class="text-xl serif italic mb-2 font-bold italic tracking-tight">Šper Nordic Set</h3>
+                <a href="https://www.instagram.com/deciji_namestaj_od_drveta_2/" target="_blank" class="text-[10px] font-bold uppercase tracking-widest border-b border-stone-900 pb-1 mt-4 hover:text-stone-500 hover:border-stone-500 transition">Naruči</a>
             </div>
 
+            <!-- 8 -->
             <div class="group flex flex-col items-center">
-                <div class="aspect-[4/5] w-full bg-stone-50 overflow-hidden mb-6 border border-stone-100 p-4">
-                    <img src="decije-stolice-igraonica-drvo-ekoloske-boje.jpg" onclick="openLightbox(this.src)" class="w-full h-full object-cover clickable-img" alt="Eko Igraonica">
+                <div class="aspect-[4/5] w-full bg-stone-50 overflow-hidden mb-8 border border-stone-100 p-4 shadow-sm">
+                    <img src="decije-stolice-igraonica-drvo-ekoloske-boje.jpg" onclick="openFull(this.src)" alt="Eko igraonica" class="w-full h-full object-cover zoom-img" loading="lazy">
                 </div>
-                <h3 class="text-xl serif italic mb-2 font-bold tracking-tight">Eko Igraonica</h3>
-                <a href="https://www.instagram.com/deciji_namestaj_od_drveta_2/" target="_blank" class="text-[10px] font-bold uppercase tracking-widest border-b border-stone-900 pb-1 mt-2 hover:text-stone-500 transition">Naruči</a>
+                <h3 class="text-xl serif italic mb-2 font-bold italic tracking-tight">Eko Igraonica</h3>
+                <a href="https://www.instagram.com/deciji_namestaj_od_drveta_2/" target="_blank" class="text-[10px] font-bold uppercase tracking-widest border-b border-stone-900 pb-1 mt-4 hover:text-stone-500 hover:border-stone-500 transition">Naruči</a>
             </div>
 
+            <!-- 9 -->
             <div class="group flex flex-col items-center">
-                <div class="aspect-[4/5] w-full bg-stone-50 overflow-hidden mb-6 border border-stone-100 p-4">
-                    <img src="decije-stolice-igraonica.jpg" onclick="openLightbox(this.src)" class="w-full h-full object-cover clickable-img" alt="Igraonica natur">
+                <div class="aspect-[4/5] w-full bg-stone-50 overflow-hidden mb-8 border border-stone-100 p-4 shadow-sm">
+                    <img src="decije-stolice-igraonica.jpg" onclick="openFull(this.src)" alt="Igraonica Natur" class="w-full h-full object-cover zoom-img" loading="lazy">
                 </div>
-                <h3 class="text-xl serif italic mb-2 font-bold tracking-tight">Natur Set</h3>
-                <a href="https://www.instagram.com/deciji_namestaj_od_drveta_2/" target="_blank" class="text-[10px] font-bold uppercase tracking-widest border-b border-stone-900 pb-1 mt-2 hover:text-stone-500 transition">Naruči</a>
+                <h3 class="text-xl serif italic mb-2 font-bold italic tracking-tight">Igraonica Natur</h3>
+                <a href="https://www.instagram.com/deciji_namestaj_od_drveta_2/" target="_blank" class="text-[10px] font-bold uppercase tracking-widest border-b border-stone-900 pb-1 mt-4 hover:text-stone-500 hover:border-stone-500 transition">Naruči</a>
             </div>
 
+            <!-- 10 -->
             <div class="group flex flex-col items-center">
-                <div class="aspect-[4/5] w-full bg-stone-50 overflow-hidden mb-6 border border-stone-100 p-4">
-                    <img src="stolice-zeka-meda-klupica-polica-oblacic.jpg" onclick="openLightbox(this.src)" class="w-full h-full object-cover clickable-img" alt="Montessori soba">
+                <div class="aspect-[4/5] w-full bg-stone-50 overflow-hidden mb-8 border border-stone-100 p-4 shadow-sm">
+                    <img src="stolice-zeka-meda-klupica-polica-oblacic.jpg" onclick="openFull(this.src)" alt="Montessori soba" class="w-full h-full object-cover zoom-img" loading="lazy">
                 </div>
-                <h3 class="text-xl serif italic mb-2 font-bold tracking-tight">Montessori Kutak</h3>
-                <a href="https://www.instagram.com/deciji_namestaj_od_drveta_2/" target="_blank" class="text-[10px] font-bold uppercase tracking-widest border-b border-stone-900 pb-1 mt-2 hover:text-stone-500 transition">Naruči</a>
+                <h3 class="text-xl serif italic mb-2 font-bold italic tracking-tight">Kompletna Soba</h3>
+                <a href="https://www.instagram.com/deciji_namestaj_od_drveta_2/" target="_blank" class="text-[10px] font-bold uppercase tracking-widest border-b border-stone-900 pb-1 mt-4 hover:text-stone-500 hover:border-stone-500 transition">Naruči</a>
+            </div>
+
+            <!-- 11 -->
+            <div class="group flex flex-col items-center">
+                <div class="aspect-[4/5] w-full bg-stone-50 overflow-hidden mb-8 border border-stone-100 p-4 shadow-sm">
+                    <img src="decije-stolice-novogodisnji-ambijent.jpg" onclick="openFull(this.src)" alt="Novogodišnji set" class="w-full h-full object-cover zoom-img" loading="lazy">
+                </div>
+                <h3 class="text-xl serif italic mb-2 font-bold italic tracking-tight">Holiday Set</h3>
+                <a href="https://www.instagram.com/deciji_namestaj_od_drveta_2/" target="_blank" class="text-[10px] font-bold uppercase tracking-widest border-b border-stone-900 pb-1 mt-4 hover:text-stone-500 hover:border-stone-500 transition">Naruči</a>
             </div>
 
         </div>
     </section>
 
-    <!-- Sekcija: PROCES (4 Slike u BOJI) -->
+    <!-- Sekcija: PROCES (Slike u BOJI, bez blokova) -->
     <section id="proces" class="py-32 bg-stone-100/50 px-6">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-20 items-center">
             <div class="md:w-1/2">
-                <span class="text-[10px] uppercase tracking-[0.5em] font-bold text-stone-400 mb-8 block">Umijeće Izrade</span>
-                <h2 class="text-5xl serif mb-10 italic tracking-tighter">Čisto drvo. <br>Čista savjest.</h2>
+                <span class="text-[10px] uppercase tracking-[0.5em] font-bold text-stone-400 mb-8 block">Umetnost Zanata</span>
+                <h2 class="text-5xl serif mb-10 italic leading-tight text-stone-900 italic tracking-tighter">Drvo sa dušom.</h2>
                 <p class="text-lg text-stone-500 font-light leading-relaxed mb-10 italic">
-                    U radionici drvo tretiramo s poštovanjem. Svaki komad je ručno brušen i zaštićen isključivo netoksičnim premazima, osiguravajući sigurnost za vaše mališane.
+                    U našoj radionici drvo nije samo sirovina, već priča koju ručno oblikujemo za vaše najmilije. Koristimo isključivo selektovan masiv i bezbedne premaze na bazi vode. Svaka ivica je pažljivo brušena do savršenstva.
                 </p>
                 <div class="flex gap-12 border-t border-stone-200 pt-10">
                     <div>
-                        <span class="block text-3xl font-bold italic serif tracking-tighter">100%</span>
-                        <span class="text-[9px] uppercase tracking-widest text-stone-400 mt-2 block">Masiv</span>
+                        <span class="block text-3xl font-bold italic serif text-stone-800">100%</span>
+                        <span class="text-[9px] uppercase tracking-widest text-stone-400 mt-2 block italic font-bold">Čist Masiv</span>
                     </div>
                     <div>
-                        <span class="block text-3xl font-bold italic serif tracking-tighter">Bio</span>
-                        <span class="text-[9px] uppercase tracking-widest text-stone-400 mt-2 block">Ulja</span>
+                        <span class="block text-3xl font-bold italic serif text-stone-800">Bio</span>
+                        <span class="text-[9px] uppercase tracking-widest text-stone-400 mt-2 block italic font-bold">Eko Premazi</span>
                     </div>
                 </div>
             </div>
-            <div class="md:w-1/2 grid grid-cols-1 gap-6">
+            <div class="md:w-1/2">
                 <div class="grid grid-cols-2 gap-6">
-                    <div class="overflow-hidden border border-stone-200 bg-white shadow-sm">
-                        <img src="decije-stolice-izrada-masiv-drvo-sper-bukva-jasen-radionica.jpg" onclick="openLightbox(this.src)" alt="Izrada masiv" class="w-full h-72 object-cover clickable-img" loading="lazy">
+                    <div class="overflow-hidden border border-stone-200 bg-white p-2">
+                        <img src="decije-stolice-izrada-masiv-drvo-sper-bukva-jasen-radionica.jpg" onclick="openFull(this.src)" alt="Izrada stolica" class="w-full h-72 object-cover zoom-img">
                     </div>
-                    <div class="overflow-hidden border border-stone-200 bg-white mt-12 shadow-sm">
-                        <img src="decije-stolice-izrada-radionica-drvo-sper.jpg" onclick="openLightbox(this.src)" alt="Obrada drva" class="w-full h-72 object-cover clickable-img" loading="lazy">
+                    <div class="overflow-hidden border border-stone-200 bg-white p-2 mt-12">
+                        <img src="decije-stolice-izrada-radionica-drvo-sper.jpg" onclick="openFull(this.src)" alt="Proces radionica" class="w-full h-72 object-cover zoom-img">
                     </div>
                 </div>
-                <div class="grid grid-cols-2 gap-6">
-                    <div class="overflow-hidden border border-stone-200 bg-white shadow-sm">
-                        <img src="decije-stolice-izrada-radionica.jpg" onclick="openLightbox(this.src)" alt="Detalj spoja" class="w-full h-56 object-cover clickable-img" loading="lazy">
+                <div class="grid grid-cols-2 gap-6 mt-6">
+                    <div class="overflow-hidden border border-stone-200 bg-white p-2">
+                        <img src="decije-stolice-izrada-radionica.jpg" onclick="openFull(this.src)" alt="Detalj spoja" class="w-full h-56 object-cover zoom-img">
                     </div>
-                    <div class="overflow-hidden border border-stone-200 bg-white shadow-sm">
-                        <img src="stolica-zeka-izrada.jpg" onclick="openLightbox(this.src)" alt="Zeka izrada" class="w-full h-56 object-cover clickable-img" loading="lazy">
+                    <div class="overflow-hidden border border-stone-200 bg-white p-2">
+                        <img src="stolica-zeka-izrada.jpg" onclick="openFull(this.src)" alt="Zeka stolica izrada" class="w-full h-56 object-cover zoom-img">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer / Kontakt -->
     <footer id="kontakt" class="bg-stone-900 text-stone-400 py-32 px-6">
         <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-24 border-b border-stone-800 pb-20">
             <div>
-                <div class="text-4xl font-bold text-white serif mb-10 tracking-tighter italic">SWEET WOOD</div>
-                <p class="mb-14 font-light text-stone-500 max-w-sm text-lg italic leading-relaxed">Ručno rađen namještaj iz Srbije. Prirodno, sigurno i vječno.</p>
+                <div class="text-4xl font-bold text-white serif mb-10 tracking-tighter italic uppercase">Sweet Wood</div>
+                <p class="mb-14 font-light text-stone-500 max-w-sm text-lg italic leading-relaxed">Pravimo uspomene koje traju. Ručni rad iz Srbije, dizajniran za generacije.</p>
                 <div class="space-y-8 text-xs tracking-[0.3em] font-bold uppercase text-stone-500">
-                    <a href="tel:+38162299151" class="flex items-center gap-6 hover:text-white transition tracking-widest">
+                    <a href="tel:+38162299151" class="flex items-center gap-6 hover:text-white transition">
                         <span class="w-10 h-px bg-stone-800"></span> +381 62 299 151
                     </a>
                 </div>
             </div>
             <div class="flex flex-col justify-end text-center md:text-right">
-                <p class="text-[10px] uppercase tracking-[0.6em] mb-10 text-stone-700 font-extrabold italic uppercase">Poručite putem poruke</p>
+                <p class="text-[10px] uppercase tracking-[0.6em] mb-10 text-stone-700 font-extrabold italic uppercase">Pratite naš rad</p>
                 <a href="https://www.instagram.com/deciji_namestaj_od_drveta_2/" target="_blank" class="text-3xl md:text-5xl font-bold text-white hover:text-stone-400 transition italic serif tracking-tighter">@deciji_namestaj_od_drveta_2</a>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto mt-12 flex flex-col md:flex-row justify-between text-[9px] uppercase tracking-[0.4em] text-stone-700 font-bold">
-            <p>&copy; 2024 Sweet Wood Radionica</p>
-            <p>Prirodno • Sigurno • Ručni rad</p>
+        <div class="max-w-7xl mx-auto mt-12 flex flex-col md:flex-row justify-between text-[9px] uppercase tracking-[0.5em] text-stone-700 font-bold items-center gap-4">
+            <p>&copy; 2024 Sweet Wood Radionica Srbija</p>
+            <p>Prirodno • Bezbedno • Večno</p>
         </div>
     </footer>
 
     <script>
-        // Funkcije za Lightbox
-        function openLightbox(src) {
-            document.getElementById('lightbox-img').src = src;
-            document.getElementById('lightbox').style.display = 'flex';
-            document.body.style.overflow = 'hidden'; // Onemogući skrolovanje dok je uvećano
+        // Funkcije za Lightbox (Uvećanje slika)
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        function openFull(src) {
+            lightboxImg.src = src;
+            lightbox.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Isključi skrolovanje
         }
 
-        function closeLightbox() {
-            document.getElementById('lightbox').style.display = 'none';
+        lightbox.onclick = function() {
+            lightbox.style.display = 'none';
             document.body.style.overflow = 'auto'; // Vrati skrolovanje
         }
 
-        // Zatvori na Escape tipku
-        document.addEventListener('keydown', function(e) {
-            if (e.key === "Escape") closeLightbox();
+        // Zatvori na tipku ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                lightbox.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
         });
     </script>
 
